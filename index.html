@@ -1,391 +1,530 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Gymetric Landing Page - V2 Light Mode</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "primary": "#0066FF",
-              "primary-dark": "#0052cc",
-              "background": "#ffffff",
-              "surface": "#F7F9FC",
-              "surface-hover": "#EDF1F7",
-              "text-main": "#0F172A",
-              "text-muted": "#64748B",
-            },
-            fontFamily: {
-              "display": ["Inter", "sans-serif"]
-            },
-            borderRadius: {
-              "3xl": "1.5rem", 
-              "4xl": "2rem", 
-              "5xl": "2.5rem",
-            },
-            boxShadow: {
-                'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.05)',
-                'glow': '0 0 40px -10px rgba(0, 102, 255, 0.3)',
-            }
+<html class="scroll-smooth transition-colors duration-300" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Gymetric - Smart Gym Management</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <style>
+    :root {
+      --primary: 79 70 229;
+      /* #4F46E5 */
+      --background: 255 255 255;
+      --surface: 248 250 252;
+      /* #F8FAFC */
+      --text-main: 15 23 42;
+      /* #0F172A */
+      --text-muted: 100 116 139;
+      /* #64748B */
+    }
+
+    .dark {
+      --background: 11 17 32;
+      /* Deep Navy for Background */
+      --surface: 30 41 59;
+      /* Slate 800 */
+      --text-main: 241 245 249;
+      /* Slate 100 */
+      --text-muted: 148 163 184;
+      /* Slate 400 */
+    }
+
+    .phone-frame {
+      border: 8px solid #334155;
+      border-radius: 40px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      background: #000;
+      transition: border-color 0.3s;
+      z-index: 20;
+    }
+
+    .dark .phone-frame {
+      border-color: #1e293b;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #4F46E5 0%, #9333EA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: "rgb(var(--primary) / <alpha-value>)",
+            background: "rgb(var(--background) / <alpha-value>)",
+            surface: "rgb(var(--surface) / <alpha-value>)",
+            "text-main": "rgb(var(--text-main) / <alpha-value>)",
+            "text-muted": "rgb(var(--text-muted) / <alpha-value>)",
+          },
+          fontFamily: {
+            "display": ["Outfit", "sans-serif"]
+          },
+          borderRadius: {
+            "4xl": "2.5rem",
           },
         },
-      }
-    </script>
+      },
+    }
+  </script>
 </head>
-<body class="font-display antialiased text-text-main bg-background selection:bg-primary/20 selection:text-primary overflow-x-hidden">
-<nav class="sticky top-0 z-50 w-full bg-background/90 backdrop-blur-xl border-b border-gray-100">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="flex h-20 items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="flex items-center justify-center size-10 rounded-2xl bg-primary text-white shadow-lg shadow-primary/30">
-<span class="material-symbols-outlined text-[24px]">fitness_center</span>
-</div>
-<span class="text-xl font-bold tracking-tight text-text-main">Gymetric</span>
-</div>
-<div class="hidden lg:flex items-center gap-10">
-<a class="text-sm font-medium text-text-muted hover:text-primary transition-colors" href="#features">Features</a>
-<a class="text-sm font-medium text-text-muted hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
-<a class="text-sm font-medium text-text-muted hover:text-primary transition-colors" href="#developer">Developer</a>
-</div>
-<div class="flex items-center gap-4">
-<a class="hidden sm:flex h-11 items-center justify-center rounded-full bg-text-main px-6 text-sm font-semibold text-white transition-all hover:bg-primary hover:shadow-lg hover:shadow-primary/25" href="#subscribe">
-                    Get Early Access
-                </a>
-<button class="lg:hidden p-2 text-text-main">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</div>
-</div>
-</nav>
-<section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="flex flex-col lg:flex-row items-center gap-16">
-<div class="flex-1 max-w-2xl z-10">
-<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface border border-gray-200 text-primary text-xs font-bold mb-8 uppercase tracking-wider">
-<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-<span>v2.0 Now Available</span>
-</div>
-<h1 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.05] text-text-main mb-8">
-                    Smart Gyms run on <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Autopilot</span>
-</h1>
-<p class="text-xl text-text-muted mb-10 leading-relaxed font-light">
-                    The iOS-native operating system for modern fitness centers. Automate renewals via WhatsApp, generate AI workout plans, and secure your facility with biometrics.
-                </p>
-<div class="flex flex-wrap items-center gap-4">
-<button class="flex items-center gap-3 bg-text-main text-white h-14 px-8 rounded-2xl hover:bg-gray-800 transition-all shadow-xl shadow-gray-200">
-<span class="material-symbols-outlined text-2xl">ios</span>
-<div class="text-left leading-none">
-<span class="text-[10px] uppercase opacity-70 font-semibold">Download on</span>
-<div class="font-bold text-base">App Store</div>
-</div>
-</button>
-<button class="flex items-center gap-3 bg-surface text-text-main border border-gray-200 h-14 px-8 rounded-2xl hover:bg-gray-100 transition-colors">
-<span class="material-symbols-outlined text-2xl">android</span>
-<div class="text-left leading-none">
-<span class="text-[10px] uppercase opacity-70 font-semibold">Get it on</span>
-<div class="font-bold text-base">Google Play</div>
-</div>
-</button>
-</div>
-</div>
-<div class="flex-1 w-full relative">
-<div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-gray-200 border border-gray-100 group">
-<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClK5pP8RzFha3cldNjrlVOKhfIt-alzwLApetXkJmJFhA5B0IjErSu81EM1ACTq9K-sTQxTEgnmqf9Q8rnRZFKz2SSwbvhomTBGTgZYOxMPrQbq1mKgCkcZRjUubIX4WOpeG7u5EgoqxzCKNTRljj0rqKSO968zpq7PBycBrCa9767lLi2PscxhIP17uImr2mrvOMPT6BDSily11JSmhW4A1bN_ixCoi0RQx_VzDe86DJQ6V-5CX8bZ__xEvY_AGz86DO1rNurSc0');"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-<div class="absolute -bottom-12 -left-12 w-[60%] shadow-2xl rounded-[2rem] border-4 border-white overflow-hidden transform rotate-3 transition-transform hover:rotate-0 duration-500">
-<img alt="Gymetric Dashboard" class="w-full h-auto bg-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsr2uGYTib9DwquiRRXYoBtj8g_xKpXefzBBRkkUXYrGf3R3iRcV4wI1zaST9uOZDlMvo_hbFURKnBfH5a3o_HkVFa_en2iZmRoNqZ5hSIp0kuLn8QPGpNT5zXr3mAOszT5Yl53XR_1V7urCFnf44L8hqIAfiQGj2eC9n-yi2qh47iMYeU4IQ4hSLk_aSo04AVv6YLAqwpAqA4OqnQ4l1I4qNlxpRwcwQW2Ay_yzGM6IL7lbfSA3Y_fQev0ekPOqo8Z4GsYD0QnLI"/>
-</div>
-<div class="absolute top-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50">
-<div class="flex items-center gap-3">
-<div class="size-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-<span class="material-symbols-outlined">trending_up</span>
-</div>
-<div>
-<div class="text-xs text-text-muted font-medium">Monthly Revenue</div>
-<div class="text-lg font-bold text-text-main">+24%</div>
-</div>
-</div>
-</div>
-</div>
-<div class="absolute -z-10 top-1/2 right-0 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl"></div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-surface" id="features">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="mb-16 max-w-3xl">
-<h2 class="text-3xl md:text-4xl font-bold text-text-main mb-6">Built for the <br/><span class="text-primary">High-Performance Gym</span></h2>
-<p class="text-lg text-text-muted">Everything you need to manage memberships, automate retention, and empower your athletes—all in one place.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(340px,auto)]">
-<div class="lg:col-span-2 rounded-4xl bg-white p-8 md:p-12 border border-gray-100 shadow-soft relative overflow-hidden group">
-<div class="flex flex-col h-full justify-between relative z-10">
-<div class="max-w-md">
-<div class="size-14 rounded-2xl bg-green-500 text-white flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
-<span class="material-symbols-outlined text-3xl">chat</span>
-</div>
-<h3 class="text-2xl font-bold text-text-main mb-3">WhatsApp Automation</h3>
-<p class="text-text-muted">Forget SMS. Engage members where they are. Automate onboarding welcomes, membership renewal reminders, and expiry alerts directly through WhatsApp.</p>
-</div>
-<div class="mt-8 relative w-full h-64 bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
-<div class="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:translate-y-[-10%]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ309JyPfjArOwW7hQRc5ymOMNY2BSBcy06ZWY3v2kZNcyAGbXBJ4G94_ggQ60BkEynLm9NJMNfcl4NY2D1nlHk8_a3WQsVo-QaO5iZi5zKwufg3-FaK_UMO103LMSNAWyVInpY6SZ3Tpnp1xrfVQt_uTBPkqA866RC8gcvnyUWk9OFwCvbKJeMeEeXMxzWvDcX7bl4kteXOPDAp7Rnh7dhoABBZKG8TrRrMHdB03EinWjv7ettLGg0X8zkh1F1u8d_5kNg4dQDhY');"></div>
-</div>
-</div>
-</div>
-<div class="lg:row-span-2 rounded-4xl bg-white p-8 border border-gray-100 shadow-soft relative overflow-hidden group">
-<div class="relative z-10 h-full flex flex-col">
-<div class="size-14 rounded-2xl bg-blue-500 text-white flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30">
-<span class="material-symbols-outlined text-3xl">badge</span>
-</div>
-<h3 class="text-2xl font-bold text-text-main mb-3">Membership Mastery</h3>
-<p class="text-text-muted mb-8">Full-stack member lifecycle management. From signup to churn prediction.</p>
-<div class="flex-grow relative w-full bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD35oLGfxBMh_oSwqYigWwM32AMPZ-d_MJRyjsWybPmGjQKDoWxJ2OvlNajwEX5WkcbldcQwDbhPuzb9-lyKcwBQRSohErlsiPI2Mp0uK8jdnZtqyw-7f2_vSvOLVaYR9FHdWWupl0-PHM64RrRhVxCn4q0OcO1W_ncnWu0DD4QsNn0abVV56f1v9Quc-y_nIJR-3ocjO69oq0FuuOzYk48iyCD_ndMADl69Hb8rTFUO-deLLaeMDTt5WrIBferB6kGS9Exd9bAogk');"></div>
-<div class="absolute bottom-4 left-4 right-4 bg-white/80 backdrop-blur-md p-4 rounded-xl border border-white/50">
-<div class="flex justify-between items-center mb-2">
-<span class="text-xs font-semibold text-text-muted">Active Members</span>
-<span class="text-xs font-bold text-green-600">+12%</span>
-</div>
-<div class="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
-<div class="bg-primary h-full w-[78%]"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="rounded-4xl bg-white p-8 border border-gray-100 shadow-soft relative overflow-hidden">
-<div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDgPT-gTY_xOIl74wPU3uG6o1PhwO6ixq9tF_3xsbZ0difESQH0RflKevcc-Jex6AI-kPM2hMAeADlKTgbhwWL5KMo_29viRLaTNknipFa6xDZDUZjwbldF4wXd-JSow4ktvDooAP4YACoR2abFCafpSaochh-zSVQYf55rHrcNmuOadfTmly0Lb90yq8DhgSY5ju0uuUDQ_hLfULtC49CO9lDzfPCFyCVYT7Pp7ZkBCV_6HSF3UWc3g3tEyaHoZ3Z4_7KEMOOQED0');"></div>
-<div class="relative z-10">
-<div class="size-14 rounded-2xl bg-purple-500 text-white flex items-center justify-center mb-6 shadow-lg shadow-purple-500/30">
-<span class="material-symbols-outlined text-3xl">psychology</span>
-</div>
-<h3 class="text-2xl font-bold text-text-main mb-3">AI Coach</h3>
-<p class="text-text-muted">Generate personalized diet and workout plans instantly based on member biometrics and goals.</p>
-</div>
-</div>
-<div class="rounded-4xl bg-white p-8 border border-gray-100 shadow-soft relative overflow-hidden">
-<div class="relative z-10">
-<div class="size-14 rounded-2xl bg-orange-500 text-white flex items-center justify-center mb-6 shadow-lg shadow-orange-500/30">
-<span class="material-symbols-outlined text-3xl">fingerprint</span>
-</div>
-<h3 class="text-2xl font-bold text-text-main mb-3">Biometric Access</h3>
-<p class="text-text-muted">Seamless entry control. Integrate with turnstiles for fingerprint or face ID access.</p>
-</div>
-<span class="material-symbols-outlined absolute -bottom-8 -right-8 text-9xl text-gray-50 opacity-50 rotate-[-15deg]">fingerprint</span>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-white overflow-hidden">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-<div>
-<h2 class="text-3xl font-bold text-text-main mb-2">Visual Upgrade</h2>
-<p class="text-text-muted">Why gyms are switching from legacy software.</p>
-</div>
-</div>
-<div class="relative grid md:grid-cols-2 gap-8">
-<div class="group relative rounded-3xl bg-gray-50 border border-gray-200 p-8 grayscale hover:grayscale-0 transition-all duration-500">
-<div class="absolute top-6 right-6">
-<span class="px-3 py-1 rounded-full bg-gray-200 text-gray-500 text-xs font-bold">LEGACY</span>
-</div>
-<h3 class="text-lg font-bold text-gray-500 mb-6">Old Spreadsheets</h3>
-<div class="aspect-video bg-gray-200 rounded-xl overflow-hidden mb-6 relative">
-<div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZUWaF32JVKqUYU-y4UIMyuOTkXcZD3yGEgsEZthjtxE8PqKl4qlwHHG4CJ-FBBexT7tIC8VJ7SIXJ_y7D67tPR6U9FSn1RHXsRQuEuLwRWPhlBKf6IXaLFRAWLDopfhS2qR4OXfkNi1NJgk548tkbHzdxpFUxKsSZdgz7dhGavLVkfuSJO9xmCuQqMNu-Ija8E80dSGI-FATKr8vQlT18kY-LjU6TJFiFnpGbOqPEcMM3MxuVrUhdsk9BEcIZS4EN19eMyNcXmiQ');"></div>
-</div>
-<div class="flex gap-2 text-sm text-red-500 font-medium">
-<span class="material-symbols-outlined text-lg">cancel</span> Cluttered &amp; Slow
-                </div>
-</div>
-<div class="rounded-3xl bg-white border-2 border-primary/20 p-8 shadow-2xl shadow-primary/5 relative z-10">
-<div class="absolute top-6 right-6">
-<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">GYMETRIC</span>
-</div>
-<h3 class="text-lg font-bold text-text-main mb-6">Modern Interface</h3>
-<div class="aspect-video bg-gray-50 rounded-xl overflow-hidden mb-6 relative shadow-md">
-<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD35oLGfxBMh_oSwqYigWwM32AMPZ-d_MJRyjsWybPmGjQKDoWxJ2OvlNajwEX5WkcbldcQwDbhPuzb9-lyKcwBQRSohErlsiPI2Mp0uK8jdnZtqyw-7f2_vSvOLVaYR9FHdWWupl0-PHM64RrRhVxCn4q0OcO1W_ncnWu0DD4QsNn0abVV56f1v9Quc-y_nIJR-3ocjO69oq0FuuOzYk48iyCD_ndMADl69Hb8rTFUO-deLLaeMDTt5WrIBferB6kGS9Exd9bAogk');"></div>
-</div>
-<div class="flex gap-2 text-sm text-green-600 font-medium">
-<span class="material-symbols-outlined text-lg">check_circle</span> Automated &amp; Clean
-                </div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-surface" id="testimonials">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-text-main mb-4">Loved by Gym Owners</h2>
-<p class="text-text-muted">Powering the next generation of fitness facilities.</p>
-</div>
-<div class="grid md:grid-cols-3 gap-8">
-<div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center gap-1 text-yellow-400 mb-6">
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-</div>
-<p class="text-text-main text-lg font-medium mb-6">"The WhatsApp automation is a game changer. Our renewal rate went up by 30% in the first month."</p>
-<div class="flex items-center gap-4">
-<div class="size-12 rounded-full bg-gray-200 overflow-hidden">
-<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC62XW4y_5YWDDWQUtHjlkneW7MhvM7_5TRUiY_TDTqpjYAwtNnieb9m-KfphmfgM4qwfGoBxJu9iVR7MvyMYb4bWMuQThP8IkEfWfBL6S5Pr182ZIjyIYoMVRBXaXeJ2IIezWT-gILMgEcEREKbNiu2XAAordg52WnVtr4ZmSD3-WZvzKjluY9Z7EaaYTU03r4pH5TE5qGJYmVKY6Y35K_-VWkW6N0Urho7kuk3AXZpf5Ai714Kgx9AfaCM8xsdJ7akqSQICjw8cA"/>
-</div>
-<div>
-<div class="font-bold text-text-main">Marcus Chen</div>
-<div class="text-sm text-text-muted">Owner, Iron District</div>
-</div>
-</div>
-</div>
-<div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center gap-1 text-yellow-400 mb-6">
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-</div>
-<p class="text-text-main text-lg font-medium mb-6">"Finally, software that looks like it was built in this decade. The biometric integration is flawless."</p>
-<div class="flex items-center gap-4">
-<div class="size-12 rounded-full bg-gray-200 overflow-hidden">
-<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2X5HvxzpZebJke1kOxcv2Ppq_Cik7d0KsnEq7fGuI3cHjgwPAcoz7RQ-a9dZmeioZEjaa4C3Pv3hXm2albpuLPi1MUWcX_WShviM0Vl99R1xDhHxdG2Pf-AQN6w_Z23UJHRksoCZF8CfjLJKLrBcTFo2i5HKnbLX3FW3lCqRcg_JJsN93XGU6hPQ_WPGRwbuqqKSryG-ICGdcXNrslY5v2O765ilKI519NQVAn9DlMQ8NebsEH1cqcHWKsFw9ZE9sVpZDIXPWvLo"/>
-</div>
-<div>
-<div class="font-bold text-text-main">Sarah Jenkins</div>
-<div class="text-sm text-text-muted">Founder, Flex Studio</div>
-</div>
-</div>
-</div>
-<div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-<div class="flex items-center gap-1 text-yellow-400 mb-6">
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-<span class="material-symbols-outlined text-sm fill-current">star</span>
-</div>
-<p class="text-text-main text-lg font-medium mb-6">"My trainers love the AI plan generator. It saves them hours of manual work every single week."</p>
-<div class="flex items-center gap-4">
-<div class="size-12 rounded-full bg-gray-200 overflow-hidden">
-<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjs-zg7OQxLVJFDtCZiPVKxnwbf_pjweMuLt6KB0CYor_hFBe4wSkx_iOGXTIY3-6zS0ngB773opKrV1KsfJhoZ3ZJSX424kyP8gy-MlJNiHNAtg9HqUqUthc_QtWhod7oWG92hFFmxOXZG0_ruhLzgaGvpemdQRklOK2oZdxIwZIyCIZv-VfDwEP2KM3pAyy_VAG1xISKj_TAXv6ot0dN8fsiva6Fx6xDZxgkQsdBeFOF90-LpLzD4fkPOstC2lAF6hgrzrEwQdo"/>
-</div>
-<div>
-<div class="font-bold text-text-main">David Ross</div>
-<div class="text-sm text-text-muted">Director, Peak Performance</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-white" id="developer">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="bg-text-main rounded-[2.5rem] p-8 lg:p-16 text-white overflow-hidden relative">
-<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-<div class="flex flex-col-reverse lg:flex-row items-center gap-12 relative z-10">
-<div class="flex-1">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold mb-6 border border-white/20">
-<span>Meet the Maker</span>
-</div>
-<h2 class="text-3xl lg:text-4xl font-bold mb-6">Crafted with Passion by Alex</h2>
-<p class="text-gray-300 text-lg leading-relaxed mb-8">
-                        "I built Gymetric after watching my local gym owner struggle with three different legacy systems just to check a member in. I believe fitness management should be as seamless as a good workout—powerful, efficient, and free of friction."
-                    </p>
-<div class="flex items-center gap-4">
-<a class="text-white hover:text-primary transition-colors font-medium flex items-center gap-2" href="#">
-                            Read the full story <span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-<div class="flex-1 flex justify-center lg:justify-end">
-<div class="relative w-72 h-80 lg:w-96 lg:h-[28rem] rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl rotate-3">
-<img alt="Developer Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwKgzD7Oj0yFUINMcPTlOp2xw2_nYspPQ9n7C9udmg_fZ2D0hM_XeZiKliapRJmG6-HJOuY32rQUc3VmbgV7QhecrTKmx_USol4alT-YwSfEqycZ5iW6mpdqxQPRvNACEhXXZO2kJywncntBYX4u3Qxdi7iS6j6jxS0zU7mrCTlpe1WWapX3BHCP3CpmIuEHQRIlUuXz3YB4c17Fn2WIDCM4P98Iuvs-apqdj7jt3i_ct3MaFMY9M4j-uKAse9RLDosxHONklN-_4"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-24 bg-surface" id="subscribe">
-<div class="max-w-4xl mx-auto px-6 text-center">
-<div class="size-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary mb-8">
-<span class="material-symbols-outlined text-3xl">notifications_active</span>
-</div>
-<h2 class="text-4xl md:text-5xl font-black text-text-main mb-6 tracking-tight">Ready to modernize your gym?</h2>
-<p class="text-xl text-text-muted mb-10">
-            Join 500+ gym owners on the waitlist for Gymetric v2. We'll notify you when spots open up.
-        </p>
-<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-<input class="flex-1 h-14 px-6 rounded-2xl border-gray-200 bg-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none shadow-sm text-text-main placeholder:text-gray-400" placeholder="Enter your email address" type="email"/>
-<button class="h-14 px-8 rounded-2xl bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/25" type="button">
-                Notify Me
-            </button>
-</form>
-<p class="text-xs text-text-muted mt-4">No spam, just updates. Unsubscribe anytime.</p>
-</div>
-</section>
-<footer class="bg-white border-t border-gray-100 pt-20 pb-10">
-<div class="max-w-[1400px] mx-auto px-6 lg:px-12">
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
-<div class="col-span-2 lg:col-span-2">
-<div class="flex items-center gap-2 mb-6">
-<div class="flex items-center justify-center size-8 rounded-xl bg-primary text-white">
-<span class="material-symbols-outlined text-[18px]">fitness_center</span>
-</div>
-<span class="text-lg font-bold text-text-main">Gymetric</span>
-</div>
-<p class="text-text-muted max-w-sm mb-6">
-                    Empowering gyms with the tools they need to thrive in the digital age. 
-                </p>
-<div class="flex gap-4">
-<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
-<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">chat_bubble</span></a>
-<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
-</div>
-</div>
-<div>
-<h4 class="font-bold text-text-main mb-6">Platform</h4>
-<ul class="space-y-4 text-sm text-text-muted">
-<li><a class="hover:text-primary transition-colors" href="#">Features</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Integrations</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Updates</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold text-text-main mb-6">Company</h4>
-<ul class="space-y-4 text-sm text-text-muted">
-<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Press</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-bold text-text-main mb-6">Legal</h4>
-<ul class="space-y-4 text-sm text-text-muted">
-<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-</ul>
-</div>
-</div>
-<div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-sm text-gray-400">© 2024 Gymetric Inc. All rights reserved.</p>
-<div class="flex items-center gap-2 text-sm text-gray-400">
-<span class="w-2 h-2 rounded-full bg-green-500"></span>
-<span>System Operational</span>
-</div>
-</div>
-</div>
-</footer>
 
-</body></html>
+<body
+  class="font-display antialiased text-text-main bg-background selection:bg-primary/20 selection:text-primary overflow-x-hidden transition-colors duration-300">
+
+  <nav
+    class="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-text-muted/10 transition-all duration-300">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="flex h-20 items-center justify-between">
+        <!-- App Icon/Logo -->
+        <a href="#" class="flex items-center gap-3">
+          <!-- Light Mode Logo -->
+          <img src="assets/app_icon.png" alt="Gymetric Logo"
+            class="size-10 rounded-xl shadow-lg shadow-primary/20 object-contain bg-white pb-1 dark:hidden">
+          <!-- Dark Mode Logo -->
+          <img src="assets/app_icon_dark.png" alt="Gymetric Logo"
+            class="size-10 rounded-xl shadow-lg shadow-primary/20 object-contain bg-slate-800 pb-1 hidden dark:block">
+
+          <span class="text-xl font-bold tracking-tight text-text-main">Gymetric</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-8">
+          <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors"
+            href="#features">Features</a>
+          <a class="text-sm font-medium text-text-muted hover:text-primary transition-colors" href="#maker">Meet the
+            Maker</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button id="theme-toggle"
+            class="p-2 rounded-full hover:bg-surface text-text-muted hover:text-text-main transition-colors">
+            <span class="material-symbols-rounded dark:hidden">dark_mode</span>
+            <span class="material-symbols-rounded hidden dark:block">light_mode</span>
+          </button>
+          <a class="hidden sm:flex h-10 items-center justify-center rounded-full bg-primary px-6 text-sm font-bold text-white transition-all hover:opacity-90 hover:shadow-lg hover:shadow-primary/25"
+            href="#notify-scroll">
+            Notify Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative pt-16 pb-24 lg:pt-32 lg:pb-40 overflow-hidden">
+    <!-- Background Decor -->
+    <div
+      class="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 -z-10 transition-colors duration-500">
+    </div>
+    <div
+      class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 dark:bg-purple-500/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3 -z-10 transition-colors duration-500">
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+
+        <div class="flex-1 max-w-2xl z-10 text-center lg:text-left">
+          <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/10 text-primary text-xs font-bold mb-8 uppercase tracking-wider">
+            <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+            <span>Mobile First App</span>
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-text-main mb-8">
+            Smart Gyms run on <span class="gradient-text">Autopilot</span>
+          </h1>
+
+          <p class="text-xl text-text-muted mb-10 leading-relaxed font-light">
+            No complex software, no desktop required. Just a powerful mobile app to automate renewals and manage your
+            gym on the go.
+          </p>
+
+          <!-- App Store Buttons -->
+          <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+            <button
+              class="flex items-center gap-3 bg-text-main text-background h-16 px-6 rounded-2xl hover:opacity-90 transition-all shadow-xl hover:-translate-y-1">
+              <span class="material-symbols-rounded text-3xl">phone_iphone</span>
+              <div class="text-left leading-none">
+                <span class="text-[10px] uppercase opacity-70 font-semibold display-block">Download on the</span>
+                <div class="font-bold text-lg">App Store</div>
+              </div>
+            </button>
+            <button
+              class="flex items-center gap-3 bg-white text-gray-900 border border-gray-200 h-16 px-6 rounded-2xl hover:bg-gray-50 transition-all shadow-md hover:-translate-y-1">
+              <span class="material-symbols-rounded text-3xl">android</span>
+              <div class="text-left leading-none">
+                <span class="text-[10px] uppercase opacity-70 font-semibold display-block">Get it on</span>
+                <div class="font-bold text-lg">Google Play</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Image / Phone Mockup with Canvas Sequence -->
+        <div class="flex-1 w-full relative perspective-1000" id="phone-container">
+          <div id="hero-phone"
+            class="relative w-[300px] sm:w-[350px] mx-auto lg:mx-0 lg:ml-auto transition-transform duration-100 ease-out sticky top-24">
+            <div class="phone-frame bg-surface aspect-[9/19.5] shadow-2xl relative">
+
+
+              <!-- Canvas for Sequence (Both Light and Dark handled by JS) -->
+              <canvas id="sequence-canvas" width="450" height="975"
+                class="w-full h-full object-cover rounded-[32px]"></canvas>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-surface transition-colors duration-300" id="features">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-6">Features that <span class="text-primary">Actually
+            Matter</span></h2>
+        <p class="text-lg text-text-muted">No bloated desktop software. Just the essential tools you need to run your
+          gym from your phone.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div
+          class="bg-background p-8 rounded-4xl border border-text-muted/10 shadow-sm hover:shadow-lg transition-all group">
+          <div
+            class="size-14 rounded-2xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-rounded text-3xl">chat</span>
+          </div>
+          <h3 class="text-xl font-bold text-text-main mb-3">WhatsApp Integration</h3>
+          <p class="text-text-muted">Automated reminders for renewals, onboarding messages, and personalized greetings.
+          </p>
+        </div>
+
+        <div
+          class="bg-background p-8 rounded-4xl border border-text-muted/10 shadow-sm hover:shadow-lg transition-all group">
+          <div
+            class="size-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <!-- Light Mode Icon -->
+            <img src="assets/app_icon.png" class="size-8 object-contain dark:hidden">
+            <!-- Dark Mode Icon -->
+            <img src="assets/app_icon_dark.png" class="size-8 object-contain hidden dark:block">
+          </div>
+          <h3 class="text-xl font-bold text-text-main mb-3">Mobile First</h3>
+          <p class="text-text-muted">100% optimized for iOS and Android. Manage your gym while walking the floor.</p>
+        </div>
+
+        <div
+          class="bg-background p-8 rounded-4xl border border-text-muted/10 shadow-sm hover:shadow-lg transition-all group">
+          <div
+            class="size-14 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-rounded text-3xl">card_membership</span>
+          </div>
+          <h3 class="text-xl font-bold text-text-main mb-3">Smart Memberships</h3>
+          <p class="text-text-muted">Effortless expiry checks and renewals. We handle the math for you.</p>
+        </div>
+
+        <div
+          class="bg-background p-8 rounded-4xl border border-text-muted/10 shadow-sm hover:shadow-lg transition-all group lg:col-span-2 relative overflow-hidden">
+          <div
+            class="absolute top-6 right-6 px-3 py-1 bg-yellow-400/20 text-yellow-600 dark:text-yellow-400 text-xs font-bold rounded-full border border-yellow-400/20">
+            COMING SOON</div>
+          <div class="relative z-10 max-w-md">
+            <div
+              class="size-14 rounded-2xl bg-purple-500/10 text-purple-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-rounded text-3xl">psychology</span>
+            </div>
+            <h3 class="text-xl font-bold text-text-main mb-3">AI Coach</h3>
+            <p class="text-text-muted mb-6">Generate personalized exercise and diet plans instantly based on client
+              physique and goals.</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-background p-8 rounded-4xl border border-text-muted/10 shadow-sm hover:shadow-lg transition-all group">
+          <div
+            class="absolute top-6 right-6 px-3 py-1 bg-blue-400/20 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full border border-blue-400/20">
+            COMING SOON</div>
+          <div
+            class="size-14 rounded-2xl bg-blue-500/10 text-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <span class="material-symbols-rounded text-3xl">fingerprint</span>
+          </div>
+          <h3 class="text-xl font-bold text-text-main mb-3">Biometrics</h3>
+          <p class="text-text-muted">Seamless access control directly integrated with mobile devices.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-background transition-colors duration-300">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="flex-1 text-center lg:text-left">
+          <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-6">Designed for Your Eyes</h2>
+          <p class="text-lg text-text-muted mb-8">
+            Switch instantly between Light and Dark mode.
+          </p>
+
+          <!-- Toggle controls that actually switch theme and update UI -->
+          <div class="inline-flex p-1 rounded-2xl bg-surface border border-text-muted/10">
+            <button id="light-btn" onclick="setTheme('light')"
+              class="px-6 py-3 rounded-xl hover:bg-white dark:hover:bg-slate-700 text-text-muted font-medium text-sm transition-all">Light</button>
+            <button id="dark-btn" onclick="setTheme('dark')"
+              class="px-6 py-3 rounded-xl hover:bg-white dark:hover:bg-slate-700 text-text-muted font-medium text-sm transition-all">Dark</button>
+          </div>
+        </div>
+
+        <div class="flex-1 relative perspective-1000">
+          <div class="relative w-[300px] mx-auto transform rotate-6 hover:rotate-0 transition-transform duration-700">
+            <div class="phone-frame bg-surface aspect-[9/19.5] shadow-2xl">
+
+              <!-- Dynamic Image based on Theme -->
+              <img id="theme-showcase-img" src="assets/app_screenshot_v1.png" class="w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-surface transition-colors duration-300" id="maker">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <div class="bg-text-main rounded-4xl p-8 lg:p-16 text-background overflow-hidden relative">
+        <div
+          class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+          <div class="flex-1">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white text-xs font-bold mb-6 border border-white/20">
+              <span>Meet the Maker</span>
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-white">Pushkara Sharma</h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+              "I built Gymetric after watching my local gym owner struggle with legacy systems. I believe fitness
+              management should be seamless."
+            </p>
+          </div>
+          <div class="w-full md:w-1/3 flex justify-center">
+            <div class="size-64 rounded-full bg-gradient-to-br from-primary to-purple-600 p-1">
+              <div class="w-full h-full rounded-full bg-gray-800 overflow-hidden flex items-center justify-center">
+                <img src="assets/maker_photo.jpg" class="w-full h-full object-cover">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-background transition-colors duration-300" id="notify-scroll">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="size-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary mb-8">
+        <span class="material-symbols-rounded text-3xl">notifications_active</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-black text-text-main mb-6 tracking-tight">Stay Updated</h2>
+      <p class="text-xl text-text-muted mb-10">
+        Get notified when we launch. No spam.
+      </p>
+      <form id="notifyForm" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+        <input id="emailInput"
+          class="flex-1 h-14 px-6 rounded-2xl border-text-muted/20 bg-surface dark:bg-slate-800 focus:ring-2 focus:ring-primary focus:border-transparent outline-none shadow-sm text-text-main placeholder:text-text-muted/50"
+          required placeholder="Enter your email address" type="email" />
+        <button type="submit"
+          class="h-14 px-8 rounded-2xl bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/25">
+          Notify Me
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-surface border-t border-text-muted/10 py-12 transition-colors duration-300">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2">
+        <!-- Light Mode Logo -->
+        <img src="assets/app_icon.png" class="size-8 object-contain dark:hidden">
+        <!-- Dark Mode Logo -->
+        <img src="assets/app_icon_dark.png" class="size-8 object-contain hidden dark:block">
+        <span class="font-bold text-text-main">Gymetric</span>
+      </div>
+      <div class="flex gap-6 text-sm text-text-muted">
+        <a href="privacy.html" class="hover:text-primary transition-colors">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-primary transition-colors">Terms & Conditions</a>
+      </div>
+      <div class="text-sm text-text-muted">
+        © 2026 Gymetric.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const html = document.documentElement;
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const showcaseImg = document.getElementById('theme-showcase-img');
+    const lightBtn = document.getElementById('light-btn');
+    const darkBtn = document.getElementById('dark-btn');
+
+    // Image assets for fallback and showcase
+    const lightScreenshot = 'assets/app_screenshot_v1.png';
+    const darkScreenshot = 'assets/app_screenshot_dark.png';
+
+    // Canvas Logic
+    const canvas = document.getElementById('sequence-canvas');
+    const context = canvas.getContext('2d');
+    const SCROLL_RANGE = 400; // Animation completes in 400px
+
+
+    const darkImagePaths = [
+      'assets/sequence/0001.png',
+      'assets/sequence/0002.png',
+      'assets/sequence/0003.png'
+    ];
+    const lightImagePaths = [
+      'assets/sequence/0004.png',
+      'assets/sequence/0005.png',
+      'assets/sequence/0006.png',
+    ];
+
+    let darkImages = [];
+    let lightImages = [];
+    let imagesLoaded = false;
+
+    // Load Image Helper
+    function loadImages(paths) {
+      return Promise.all(paths.map(path => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = path;
+          img.onload = () => resolve(img);
+          img.onerror = () => resolve(null); // Handle error gracefully
+        });
+      }));
+    }
+
+    // Init Loader
+    async function initCanvas() {
+      const [darks, lights] = await Promise.all([
+        loadImages(darkImagePaths),
+        loadImages(lightImagePaths)
+      ]);
+      darkImages = darks.filter(img => img !== null);
+      lightImages = lights.filter(img => img !== null);
+      imagesLoaded = true;
+
+      // Initial render
+      updateCanvas(window.scrollY / SCROLL_RANGE);
+    }
+
+    initCanvas();
+
+    // Theme Logic
+    function setTheme(mode) {
+      if (mode === 'dark') {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        showcaseImg.src = darkScreenshot;
+
+        // Highlight Buttons
+        darkBtn.classList.add('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-primary');
+        lightBtn.classList.remove('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-primary');
+
+      } else {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        showcaseImg.src = lightScreenshot;
+
+        // Highlight Buttons
+        lightBtn.classList.add('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-text-main');
+        darkBtn.classList.remove('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-text-main');
+      }
+
+      // Force repaint canvas with new theme images
+      if (imagesLoaded) updateCanvas(window.scrollY / SCROLL_RANGE);
+    }
+
+    // Default to Light as requested
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      setTheme(html.classList.contains('dark') ? 'light' : 'dark');
+    });
+
+    // Notify Form
+    document.getElementById('notifyForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const subject = "Gymetric Waitlist";
+      window.location.href = `mailto:pushkara.sharma2003@gmail.com?subject=${encodeURIComponent(subject)}&body=Add me: ${email}`;
+    });
+
+    // Canvas Render
+    function updateCanvas(scrollProgress) {
+      if (!imagesLoaded) return;
+
+      const isDark = html.classList.contains('dark');
+      const activeSet = isDark ? darkImages : lightImages;
+
+      if (activeSet.length === 0) return;
+
+      let p = Math.max(0, Math.min(1, scrollProgress));
+      const frameCount = activeSet.length;
+      const rawIndex = p * (frameCount - 1);
+      const index = Math.floor(rawIndex);
+      const nextIndex = Math.min(index + 1, frameCount - 1);
+      const blend = rawIndex - index;
+
+      const img1 = activeSet[index];
+      const img2 = activeSet[nextIndex];
+
+      if (!img1 || !img2) return;
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw background white/dark to prevent transparency artifacts
+      context.fillStyle = isDark ? '#000000' : '#FFFFFF';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      context.globalAlpha = 1;
+      context.drawImage(img1, 0, 0, canvas.width, canvas.height);
+
+      if (index !== nextIndex) {
+        context.globalAlpha = blend;
+        context.drawImage(img2, 0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    // Scroll Loop
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      // Animation range
+      requestAnimationFrame(() => updateCanvas(scrollTop / SCROLL_RANGE));
+
+      // Phone translation
+      const phone = document.getElementById('hero-phone');
+      if (scrollTop < 1200) {
+        phone.style.transform = `translateY(${scrollTop * 0.2}px)`;
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

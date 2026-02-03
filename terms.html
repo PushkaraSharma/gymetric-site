@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="scroll-smooth transition-colors duration-300" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Terms and Conditions - Gymetric</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <style>
+        :root {
+            --primary: 79 70 229;
+            /* #4F46E5 */
+            --background: 255 255 255;
+            --surface: 248 250 252;
+            /* #F8FAFC */
+            --text-main: 15 23 42;
+            /* #0F172A */
+            --text-muted: 100 116 139;
+            /* #64748B */
+        }
+
+        .dark {
+            --background: 11 17 32;
+            /* Deep Navy for Background */
+            --surface: 30 41 59;
+            /* Slate 800 */
+            --text-main: 241 245 249;
+            /* Slate 100 */
+            --text-muted: 148 163 184;
+            /* Slate 400 */
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "rgb(var(--primary) / <alpha-value>)",
+                        background: "rgb(var(--background) / <alpha-value>)",
+                        surface: "rgb(var(--surface) / <alpha-value>)",
+                        "text-main": "rgb(var(--text-main) / <alpha-value>)",
+                        "text-muted": "rgb(var(--text-muted) / <alpha-value>)",
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "4xl": "2.5rem",
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display antialiased text-text-main bg-background transition-colors duration-300">
+
+    <nav
+        class="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl border-b border-text-muted/10 transition-all duration-300">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+            <div class="flex h-20 items-center justify-between">
+                <a href="index.html" class="flex items-center gap-3">
+                    <!-- Light Mode Logo -->
+                    <img src="assets/app_icon.png" alt="Gymetric Logo"
+                        class="size-10 rounded-xl shadow-lg shadow-primary/20 object-contain bg-white pb-1 dark:hidden">
+                    <!-- Dark Mode Logo -->
+                    <img src="assets/app_icon_dark.png" alt="Gymetric Logo"
+                        class="size-10 rounded-xl shadow-lg shadow-primary/20 object-contain bg-slate-800 pb-1 hidden dark:block">
+                    <span class="text-xl font-bold tracking-tight text-text-main">Gymetric</span>
+                </a>
+
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-surface text-text-muted hover:text-text-main transition-colors">
+                        <span class="material-symbols-rounded dark:hidden">dark_mode</span>
+                        <span class="material-symbols-rounded hidden dark:block">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-12 lg:py-20">
+        <h1 class="text-4xl font-bold mb-8">Terms and Conditions</h1>
+        <p class="text-text-muted mb-8">Last updated: February 2026</p>
+
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold">1. Agreement to Terms</h2>
+            <p class="text-text-muted">By accessing our application, Gymetric, you agree to be bound by these Terms and
+                Conditions. If you do not agree with any part of these terms, you are prohibited from using this site.
+            </p>
+
+            <h2 class="text-2xl font-bold">2. Use License</h2>
+            <p class="text-text-muted">Permission is granted to temporarily download one copy of the materials on
+                Gymetric's website for personal, non-commercial transitory viewing only. This is the grant of a license,
+                not a transfer of title.</p>
+
+            <h2 class="text-2xl font-bold">3. Disclaimer</h2>
+            <p class="text-text-muted">The materials on Gymetric's website are provided on an 'as is' basis. Gymetric
+                makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties
+                including, without limitation, implied warranties or conditions of merchantability, fitness for a
+                particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+
+            <h2 class="text-2xl font-bold">4. Limitations</h2>
+            <p class="text-text-muted">In no event shall Gymetric or its suppliers be liable for any damages (including,
+                without limitation, damages for loss of data or profit, or due to business interruption) arising out of
+                the use or inability to use the materials on Gymetric's website.</p>
+
+            <h2 class="text-2xl font-bold">5. Governing Law</h2>
+            <p class="text-text-muted">These terms and conditions are governed by and construed in accordance with the
+                laws and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+        </section>
+    </main>
+
+    <footer class="bg-surface border-t border-text-muted/10 py-12 transition-colors duration-300">
+        <div class="max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <!-- Light Mode Logo -->
+                <img src="assets/app_icon.png" class="size-8 object-contain dark:hidden">
+                <!-- Dark Mode Logo -->
+                <img src="assets/app_icon_dark.png" class="size-8 object-contain hidden dark:block">
+                <span class="font-bold text-text-main">Gymetric</span>
+            </div>
+            <div class="flex gap-6 text-sm text-text-muted">
+                <a href="privacy.html" class="hover:text-primary transition-colors">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-primary transition-colors">Terms & Conditions</a>
+            </div>
+            <div class="text-sm text-text-muted">
+                © 2026 Gymetric.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const html = document.documentElement;
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        function setTheme(mode) {
+            if (mode === 'dark' || (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        // Load theme from storage
+        setTheme(localStorage.getItem('theme') || 'system');
+
+        themeToggleBtn.addEventListener('click', () => {
+            setTheme(html.classList.contains('dark') ? 'light' : 'dark');
+        });
+    </script>
+
+</body>
+
+</html>
